@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronin Dashboard</title>
+    <style>
+        :root {
+            /* Deep Forest & Wood tones */
+            --bg-overlay: rgba(10, 15, 10, 0.75); 
+            --mac-glass: rgba(255, 255, 255, 0.12);
+            --border-glass: rgba(255, 255, 255, 0.2);
+            --accent: #e63946; /* Samurai Crimson */
+            --text: #f1faee;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            /* Background: Dark Forest/Wood Aesthetic */
+            background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                        url('https://wallpapers.com/images/hd/4k-minimalist-green-aesthetic-forest-4dy9rddb1uqxgb46.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        /* Welcome Animation */
+        .welcome-text {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.2s forwards ease-out;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 40px;
+            animation: fadeInUp 1.5s forwards ease-out;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .search-bar {
+            background: var(--mac-glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-glass);
+            padding: 12px 25px;
+            border-radius: 50px;
+            width: 400px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-bar:focus {
+            width: 450px;
+            background: rgba(255, 255, 255, 0.18);
+            border-color: var(--accent);
+        }
+
+        /* macOS Style Dock */
+        .dock {
+            display: flex;
+            gap: 25px;
+            padding: 12px 30px;
+            background: var(--mac-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            animation: fadeInUp 1.8s forwards ease-out;
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .dock-item {
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dock-item:hover {
+            transform: scale(1.3) translateY(-10px);
+        }
+
+        .icon {
+            font-size: 2.2rem;
+            margin-bottom: 4px;
+        }
+
+        .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="welcome-text">Welcome, Samurai</h1>
+
+    <div class="search-container">
+        <form action="https://www.google.com/search" method="GET">
+            <input type="text" name="q" class="search-bar" placeholder="Seek knowledge..." autocomplete="off">
+        </form>
+    </div>
+
+    <div class="dock">
+        <a href="https://samurai-home.space" class="dock-item">
+            <span class="icon">⛩️</span>
+            <span class="label">My Site</span>
+        </a>
+        <a href="https://www.youtube.com" class="dock-item">
+            <span class="icon">🎬</span>
+            <span class="label">Watch</span>
+        </a>
+        <a href="https://www.github.com" class="dock-item">
+            <span class="icon">💻</span>
+            <span class="label">GitHub</span>
+        </a>
+    </div>
+
+</body>
+</html>
